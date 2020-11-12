@@ -1,6 +1,5 @@
 #include "alloc.h"
-#define DEBUG 0
-#define CHUNKNUM PAGESIZE/8
+#define CHUNKNUM PAGESIZE/MINALLOC
 
 char *page;
 int used_size;
@@ -73,13 +72,8 @@ int choose_pos(int size)
 char *alloc(int size)
 {
 	int res;
-	if((res = choose_pos(size)) == -1){
-#if DEBUG
-	fprintf(stderr,"Debug alloc failed\n");
-	exit(1);
-#endif
+	if((res = choose_pos(size)) == -1)
 		return NULL;
-	}
 	else
 		return page + res;
 }
@@ -103,11 +97,5 @@ void dealloc(char *start)
 	int pos;
 
 	pos = start - page;
-	if(delete_pos(pos) == -1){
-#if DEBUG
-	fprintf(stderr,"Debug dealloc Fail\n");
-	exit(1);
-#endif
-	}
+	delete_pos(pos);
 }
-
