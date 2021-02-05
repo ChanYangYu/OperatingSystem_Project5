@@ -15,7 +15,7 @@
 의 chunk를 동적으로 할당
 
 2. 확장 가능한 Heap
-! Memory mapped 페이지에 사용자 지정 메모리 할당자 구현
-! 프로세스가 요청 시에만 Memory mapped 페이지 할당
-! elloc.c를 직접 구현
-! 주어진 ealloc.h는 구현해야 하는 함수를 선언함. 수정할 필요 없음.
+- Memory mapped 페이지에 사용자 지정 메모리 할당자 구현
+- 프로세스가 요청 시에만 Memory mapped 페이지 할당
+- elloc.c를 직접 구현
+- 주어진 ealloc.h는 구현해야 하는 함수를 선언함. 수정할 필요 없음.
